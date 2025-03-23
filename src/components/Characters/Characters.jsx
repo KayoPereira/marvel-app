@@ -33,7 +33,7 @@ const Characters = () => {
 
   return (
     <div className={s.componentContainer}>
-      <form className={s.formContainer} onSubmit={(e) => handleSubmit(e)}>
+      <form className={s.formContainer} onSubmit={(e) => handleSubmit(e)} style={{paddingTop: '20px'}}>
         <input
           className={s.charInput}
           type="text"

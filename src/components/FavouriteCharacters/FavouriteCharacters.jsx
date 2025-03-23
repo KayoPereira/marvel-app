@@ -10,7 +10,7 @@ import {
 // import Character from "../Character/Character";
 import s from "./FavouriteCharacters.module.css";
 
-const FavouriteCharacters = () => {
+const FavouriteCharacters = ({theme}) => {
   const dispatch = useDispatch();
   const characters = useSelector((state) => state.favouriteCharacters);
   console.log(characters);

@@ -13,12 +13,16 @@ import CharacterEvents from "./components/CharacterEvents/CharacterEvents.jsx";
 import Aside from "./components/AsideMenu/Aside.jsx";
 import FavouriteCharacters from "./components/FavouriteCharacters/FavouriteCharacters.jsx";
 import FavouriteComics from "./components/FavouriteComics/FavouriteComics.jsx";
+import { useState } from "react";
 
 function App() {
+  const savedTheme = localStorage.getItem("theme") || "Light";
+  const [theme, setTheme] = useState(savedTheme);
+
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: theme === 'Light' ? '#F0F0F0' : '#000', minHeight: '955px'}}>
       <Nav />
-      <Aside />
+      <Aside theme={theme} setTheme={setTheme}/>
       <Routes>
         <Route path="/" element={<Characters />} />
         <Route path="/comics" element={<Comics />} />
