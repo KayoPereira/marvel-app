@@ -26,7 +26,7 @@ const Events = () => {
 
   return (
     <div>
-      <form className={s.formContainer} onSubmit={(e) => handleSubmit(e)}>
+      <form className={s.formContainer} onSubmit={(e) => handleSubmit(e)} style={{paddingTop: '20px'}}>
         <input
           className={s.eventInput}
           type="text"
