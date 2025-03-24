@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getComics } from "../../redux/action_creators";
 import Comic from "../Comic/Comic";
 import s from "./Comics.module.css";
+import { useTranslation } from "react-i18next";
 
 const Comics = () => {
   const dispatch = useDispatch();
   const comics = useSelector((state) => state.comics);
   const [input, setInput] = useState("");
+  const { t } = useTranslation();
 
   if (!comics.length) dispatch(getComics("spider"));
 
@@ -28,7 +30,7 @@ const Comics = () => {
         <input
           className={s.comicInput}
           type="text"
-          placeholder="Search by character..."
+          placeholder={t('search_by_character')}
           value={input}
           onChange={(e) => handleInput(e)}
         />

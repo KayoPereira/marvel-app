@@ -6,6 +6,7 @@ import spider from "../../images/spider.png";
 import thor from "../../images/thor.png";
 import capmarvel from "../../images/cap_marvel.png";
 import s from "./Nav.module.css";
+import { useTranslation } from "react-i18next";
 
 const Nav = () => {
   const handleClick = (e) => {
@@ -15,6 +16,8 @@ const Nav = () => {
 
     e.target.classList.add(s.active);
   };
+
+  const { t } = useTranslation();
 
   return (
     <nav className={s.navBar}>
@@ -30,22 +33,22 @@ const Nav = () => {
       </div>
       <ul onClick={(e) => handleClick(e)} className={s.navMenu}>
         <NavLink className={s.navLink} to="/">
-          <li>Characters</li>
+          <li>{t("characters")}</li>
         </NavLink>
         <NavLink className={s.navLink} to="/comics">
-          <li>Comics</li>
+          <li>{t("comics")}</li>
         </NavLink>
         {/* <NavLink className={s.navLink} to="/creators">
           <li>Creators</li>
         </NavLink> */}
         <NavLink className={s.navLink} to="/events">
-          <li>Events</li>
+          <li>{t("events")}</li>
         </NavLink>
         {/* <NavLink className={s.navLink} to="/series">
           <li>Series</li>
         </NavLink> */}
         <NavLink className={s.navLink} to="/stories">
-          <li>Stories</li>
+          <li>{t("stories")}</li>
         </NavLink>
       </ul>
     </nav>

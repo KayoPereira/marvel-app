@@ -4,6 +4,7 @@ import { getCharacters, resetCharacters } from "../../redux/action_creators";
 import Character from "../Character/Character";
 // import loadingImg from "../../images/loading-img.gif";
 import s from "./Characters.module.css";
+import { useTranslation } from "react-i18next";
 
 const Characters = () => {
   const abecedary = "abcdefghijklmnopqrstuvwxyz";
@@ -12,6 +13,8 @@ const Characters = () => {
   const dispatch = useDispatch();
   const characters = useSelector((state) => state.characters);
   const [input, setInput] = useState("");
+
+  const { t } = useTranslation();
 
   if (!characters.length) {
     dispatch(getCharacters(randomLetter));
@@ -37,7 +40,7 @@ const Characters = () => {
         <input
           className={s.charInput}
           type="text"
-          placeholder="Search characters..."
+          placeholder={t('search_characters')}
           value={input}
           onChange={(e) => handleInput(e)}
         />
